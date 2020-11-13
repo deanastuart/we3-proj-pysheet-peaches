@@ -33,26 +33,33 @@ class Cell():
         entry = self.widget = tk.Entry(parent,
                                        textvariable=self.var,
                                        justify='right')
-        entry.bind('<FocusIn>', self.edit)
-        entry.bind('<FocusOut>', self.update)
-        entry.bind('<Return>', self.update)
-        entry.bind('<Up>', self.move(-1, 0))
-        entry.bind('<Down>', self.move(+1, 0))
-        entry.bind('<Left>', self.move(0, -1))
-        entry.bind('<Right>', self.move(0, 1))
-
+#        entry.bind('<FocusIn>', self.edit)
+#        entry.bind('<FocusOut>', self.update)
+#        entry.bind('<Return>', self.update)
+#        entry.bind('<Up>', self.move(-1, 0))
+#        entry.bind('<Down>', self.move(+1, 0))
+#        entry.bind('<Left>', self.move(0, -1))
+#        entry.bind('<Right>', self.move(0, 1))
+        self.row = row
+        self.col = col
+        self.siblings = siblings
+        self.name = cellname(self.col, self.row)
+        self.value = 0
+        self.formula = str(self.value)
+        self.depenceies = ()
+        self.set = (self.value)
         # set this cell's var to cell's value
         # and you're done.
 
-    def move(self, rowadvance, coladvance):
-        targetrow = (self.row + rowadvance) % Nrows
-        targetcol = (self.col + coladvance) % Ncols
+#    def move(self, rowadvance, coladvance):
+#        targetrow = (self.row + rowadvance) % Nrows
+#        targetcol = (self.col + coladvance) % Ncols
 
-        def focus(event):
-            targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
-            targetwidget.focus()
+#        def focus(event):
+#            targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
+#            targetwidget.focus()
 
-        return focus
+ #       return focus
 
     def calculate(self):
         # find all the cells mentioned in the formula.
