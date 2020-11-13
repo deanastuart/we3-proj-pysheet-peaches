@@ -15,7 +15,6 @@ def cellname(col, row):
     # returns a string translates col 0, row 0 to 'A1'
     pass
 
-
 class Cell():
     def __init__(self, row, col, siblings, parent):
         # save off instance variables from arguments
@@ -33,38 +32,43 @@ class Cell():
         entry = self.widget = tk.Entry(parent,
                                        textvariable=self.var,
                                        justify='right')
-#        entry.bind('<FocusIn>', self.edit)
-#        entry.bind('<FocusOut>', self.update)
-#        entry.bind('<Return>', self.update)
-#        entry.bind('<Up>', self.move(-1, 0))
-#        entry.bind('<Down>', self.move(+1, 0))
-#        entry.bind('<Left>', self.move(0, -1))
-#        entry.bind('<Right>', self.move(0, 1))
+        entry.bind('<FocusIn>', self.edit)
+        entry.bind('<FocusOut>', self.update)
+        entry.bind('<Return>', self.update)
+        entry.bind('<Up>', self.move(-1, 0))
+        entry.bind('<Down>', self.move(+1, 0))
+        entry.bind('<Left>', self.move(0, -1))
+        entry.bind('<Right>', self.move(0, 1))
         self.row = row
         self.col = col
         self.siblings = siblings
         self.name = cellname(self.col, self.row)
         self.value = 0
         self.formula = str(self.value)
-        self.depenceies = ()
-        self.set = (self.value)
+        self.dependencies = ()
+        self.var.set(self.value)
         # set this cell's var to cell's value
         # and you're done.
 
-#    def move(self, rowadvance, coladvance):
-#        targetrow = (self.row + rowadvance) % Nrows
-#        targetcol = (self.col + coladvance) % Ncols
+    def move(self, rowadvance, coladvance):
+        targetrow = (self.row + rowadvance) % Nrows
+        targetcol = (self.col + coladvance) % Ncols
 
-#        def focus(event):
-#            targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
-#            targetwidget.focus()
+    def focus(event):
+        targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
+        targetwidget.focus()
 
- #       return focus
+        return focus
 
     def calculate(self):
         # find all the cells mentioned in the formula.
         #  put them all into a tmp set currentreqs
-        #  
+        currentreqs = []
+        for i in range(len(self.formula)):
+            if self.formula[i].isalpha():
+                currentreqs.append(self.formula[i:i+2])
+        self.dependencies = currentreqs
+
         # Add this cell to the new requirement's dependents
         # removing all the reqs that we might no longer need
         # for each in currentreqs - self.reqs
@@ -80,7 +84,6 @@ class Cell():
         environment = ChainMap(math.__dict__, reqvalues)
         # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
-
         # save currentreqs in self.reqs
         # set this cell's var to cell's value
         # 
