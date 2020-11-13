@@ -12,8 +12,11 @@ cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
 def cellname(col, row):
+
+    col = chr(ord('@')+(col+1))
+    return str(col + (row + 1))
     # returns a string translates col 0, row 0 to 'A1'
-    pass
+
 
 class Cell():
     def __init__(self, row, col, siblings, parent):
@@ -42,11 +45,11 @@ class Cell():
         self.row = row
         self.col = col
         self.siblings = siblings
-        self.name = cellname(self.col, self.row)
+        self.name = cellname(i,j)
         self.value = 0
         self.formula = str(self.value)
         self.dependencies = ()
-        self.var.set(self.value)
+        self.set = (self.value)
         # set this cell's var to cell's value
         # and you're done.
 
@@ -63,12 +66,17 @@ class Cell():
     def calculate(self):
         # find all the cells mentioned in the formula.
         #  put them all into a tmp set currentreqs
+
         currentreqs = []
         for i in range(len(self.formula)):
             if self.formula[i].isalpha():
                 currentreqs.append(self.formula[i:i+2])
         self.dependencies = currentreqs
 
+        # for i in self.formula:
+        #     if i ==
+        #
+        # currentregs =
         # Add this cell to the new requirement's dependents
         # removing all the reqs that we might no longer need
         # for each in currentreqs - self.reqs
@@ -76,20 +84,20 @@ class Cell():
         # Add remove this cell from dependents no longer referenced
         # for each in self.reqs - currentreqs:
         #    my siblings[r].deps.remove(self.name)
-        #  
+        #
         # Look up the values of our required cells
         # reqvalues = a comprehension of r, self.siblings[r].value for r in currentreqs
         # Build an environment with these values and basic math functions
-        
+
         environment = ChainMap(math.__dict__, reqvalues)
         # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
         # save currentreqs in self.reqs
         # set this cell's var to cell's value
-        # 
+
 
     def propagate(self):
-        pass 
+        pass
         # for each of your deps
         #     calculate
         #     propogate
