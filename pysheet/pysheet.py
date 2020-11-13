@@ -12,8 +12,11 @@ cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
 def cellname(col, row):
+
+    col = chr(ord('@')+(col+1))
+    return str(col + (row + 1))
     # returns a string translates col 0, row 0 to 'A1'
-    pass
+
 
 
 class Cell():
@@ -33,38 +36,41 @@ class Cell():
         entry = self.widget = tk.Entry(parent,
                                        textvariable=self.var,
                                        justify='right')
-#        entry.bind('<FocusIn>', self.edit)
-#        entry.bind('<FocusOut>', self.update)
-#        entry.bind('<Return>', self.update)
-#        entry.bind('<Up>', self.move(-1, 0))
-#        entry.bind('<Down>', self.move(+1, 0))
-#        entry.bind('<Left>', self.move(0, -1))
-#        entry.bind('<Right>', self.move(0, 1))
+        entry.bind('<FocusIn>', self.edit)
+        entry.bind('<FocusOut>', self.update)
+        entry.bind('<Return>', self.update)
+        entry.bind('<Up>', self.move(-1, 0))
+        entry.bind('<Down>', self.move(+1, 0))
+        entry.bind('<Left>', self.move(0, -1))
+        entry.bind('<Right>', self.move(0, 1))
         self.row = row
         self.col = col
         self.siblings = siblings
-        self.name = cellname(self.col, self.row)
+        self.name = cellname(i,j)
         self.value = 0
         self.formula = str(self.value)
-        self.depenceies = ()
+        self.dependencies = ()
         self.set = (self.value)
         # set this cell's var to cell's value
         # and you're done.
 
-#    def move(self, rowadvance, coladvance):
-#        targetrow = (self.row + rowadvance) % Nrows
-#        targetcol = (self.col + coladvance) % Ncols
+    def move(self, rowadvance, coladvance):
+        targetrow = (self.row + rowadvance) % Nrows
+        targetcol = (self.col + coladvance) % Ncols
 
-#        def focus(event):
-#            targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
-#            targetwidget.focus()
+        def focus(event):
+            targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
+            targetwidget.focus()
 
- #       return focus
+            return focus
 
     def calculate(self):
         # find all the cells mentioned in the formula.
         #  put them all into a tmp set currentreqs
-        #  
+        # for i in self.formula:
+        #     if i ==
+        #
+        # currentregs =
         # Add this cell to the new requirement's dependents
         # removing all the reqs that we might no longer need
         # for each in currentreqs - self.reqs
@@ -72,21 +78,21 @@ class Cell():
         # Add remove this cell from dependents no longer referenced
         # for each in self.reqs - currentreqs:
         #    my siblings[r].deps.remove(self.name)
-        #  
+        #
         # Look up the values of our required cells
         # reqvalues = a comprehension of r, self.siblings[r].value for r in currentreqs
         # Build an environment with these values and basic math functions
-        
+
         environment = ChainMap(math.__dict__, reqvalues)
         # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
 
         # save currentreqs in self.reqs
         # set this cell's var to cell's value
-        # 
+
 
     def propagate(self):
-        pass 
+        pass
         # for each of your deps
         #     calculate
         #     propogate
