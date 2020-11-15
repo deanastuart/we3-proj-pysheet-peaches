@@ -5,6 +5,7 @@ import re
 from collections import ChainMap
 import math
 
+
 Nrows = 5
 Ncols = 5
 
