@@ -59,8 +59,7 @@ class Cell():
         # set this cell's var to cell's value
         self.var.set(self.value)
         # and you're done.
-        master = Tk()
-        b = Button (master, text="Save", command=save('sheet.pickle'))
+
 
 
     def move(self, rowadvance, coladvance):
@@ -153,7 +152,7 @@ class SpreadSheet(tk.Frame):
         self.cellframe = tk.Frame(self)
         self.cellframe.pack(side='top')
 
-        self.B = tk.Butt
+        # self.B = tk.Butt
 
 
         files = [('All Files', '*.*'),
