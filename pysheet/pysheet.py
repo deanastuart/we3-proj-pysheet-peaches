@@ -4,7 +4,9 @@ import tkinter as tk
 import re
 from collections import ChainMap
 import math
+
 from tkinter.filedialog import asksaveasfile
+
 
 from numpy import save
 
@@ -118,11 +120,18 @@ class Cell():
         if hasattr(event, 'keysym') and event.keysym == "Return":
             self.var.set(self.formula)
 
+
+    def save(self, filename):
+        with open(filename, 'wb') as out_file:
+            pickle.dump(self, out_file)
+        print("Your data was saved.")
+
     # def save1(filename):
     #
     #     # with open(filename, 'wb') as out_file:
         #     pickle.dump(filename, out_file)
         # print("Your data was saved.")
+
 
     def load(self, filename):
         pass
@@ -144,6 +153,9 @@ class SpreadSheet(tk.Frame):
         self.cellframe = tk.Frame(self)
         self.cellframe.pack(side='top')
 
+        self.B = tk.Butt
+
+
         files = [('All Files', '*.*'),
                  ('Python Files', '*.py'),
                  ('Text Document', '*.txt')]
@@ -152,6 +164,7 @@ class SpreadSheet(tk.Frame):
         self.B = tk.Button(root, text="Save", command = (lambda : (asksaveasfile(filetypes=files, defaultextension=files))))
 
         self.B.pack()
+
 
 
         # Column labels
