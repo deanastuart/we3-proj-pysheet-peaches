@@ -4,6 +4,7 @@ import tkinter as tk
 import re
 from collections import ChainMap
 import math
+import pickle
 
 
 Nrows = 5
@@ -117,8 +118,9 @@ class Cell():
             self.var.set(self.formula)
 
     def save(self, filename):
-
-        pass
+        with open(filename, 'wb') as out_file:
+            pickle.dump(self, out_file)
+        print("Your data was saved.")
 
     def load(self, filename):
         pass
@@ -138,7 +140,7 @@ class SpreadSheet(tk.Frame):
         # Frame for all the cells
         self.cellframe = tk.Frame(self)
         self.cellframe.pack(side='top')
-
+        self.B = tk.Butt
         # Column labels
         blank = tk.Label(self.cellframe)
         blank.grid(row=0, column=0)
