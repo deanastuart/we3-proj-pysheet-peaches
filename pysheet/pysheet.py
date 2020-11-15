@@ -1,3 +1,6 @@
+
+#/Users//Users/amanda/Documents/PythonProjects/env python
+
 #!/usr/bin/env python
 import pickle
 import tkinter as tk
@@ -56,12 +59,15 @@ class Cell():
         # set this cell's var to cell's value
         self.var.set(self.value)
         # and you're done.
+        master = Tk()
+        b = Button (master, text="Save", command=save('sheet.pickle'))
+
 
     def move(self, rowadvance, coladvance):
         targetrow = (self.row + rowadvance) % Nrows
         targetcol = (self.col + coladvance) % Ncols
 
-        def focus(event):
+        def focus(self, event):
             targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
             targetwidget.focus()
 
@@ -90,7 +96,6 @@ class Cell():
         environment = ChainMap(math.__dict__, reqvalues)
         # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
-
         # save currentreqs in self.reqs
         # set this cell's var to cell's value
         self.reqs = currentreqs
@@ -120,11 +125,6 @@ class Cell():
         if hasattr(event, 'keysym') and event.keysym == "Return":
             self.var.set(self.formula)
 
-
-    def save(self, filename):
-        with open(filename, 'wb') as out_file:
-            pickle.dump(self, out_file)
-        print("Your data was saved.")
 
     # def save1(filename):
     #
