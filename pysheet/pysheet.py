@@ -5,7 +5,6 @@ import re
 from collections import ChainMap
 import math
 
-# import self
 
 Nrows = 5
 Ncols = 5
@@ -13,9 +12,8 @@ Ncols = 5
 cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
-
-def cellname(i,j):
-    return f'{chr(ord("A")+j)}{i+1}'
+def cellname(i, j):
+    return f'{chr(ord("A") + j)}{i + 1}'
     # returns a string translates col 0, row 0 to 'A1'
 
 
@@ -80,11 +78,11 @@ class Cell():
         #    my siblings[r].deps.remove(self.name)
         for e in self.reqs - currentreqs:
             self.siblings[e].deps.remove(self.name)
+
         # Look up the values of our required cells
         # reqvalues = a comprehension of r, self.siblings[r].value for r in currentreqs
         reqvalues = {r: self.siblings[r].value for r in currentreqs}
         # Build an environment with these values and basic math functions
-
         environment = ChainMap(math.__dict__, reqvalues)
         # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
@@ -93,7 +91,6 @@ class Cell():
         # set this cell's var to cell's value
         self.reqs = currentreqs
         self.var.set(self.value)
-
 
     def propagate(self):
         # for each of your deps
@@ -157,7 +154,6 @@ class SpreadSheet(tk.Frame):
                 cell = Cell(i, j, self.cells, self.cellframe)
                 self.cells[cell.name] = cell
                 cell.widget.grid(row=1 + i, column=1 + j)
-
 
 
 root = tk.Tk()
