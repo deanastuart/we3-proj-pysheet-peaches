@@ -161,8 +161,10 @@ class SpreadSheet(tk.Frame):
 
 
         self.B = tk.Button(root, text="Save", command = (lambda : (asksaveasfile(filetypes=files, defaultextension=files))))
+        self.C = tk.Button(root, text="Load")
 
         self.B.pack()
+        self.C.pack()
 
 
 
