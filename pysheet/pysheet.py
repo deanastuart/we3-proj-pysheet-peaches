@@ -120,7 +120,6 @@ class Cell():
 
     # def save1(filename):
     #
-    #     pass
     #     # with open(filename, 'wb') as out_file:
         #     pickle.dump(filename, out_file)
         # print("Your data was saved.")
