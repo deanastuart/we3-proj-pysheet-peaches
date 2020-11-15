@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/Users//Users/amanda/Documents/PythonProjects/env python
 
 import tkinter as tk
 import re
 from collections import ChainMap
 import math
+import pickle
 
 import self
 
@@ -54,14 +55,17 @@ class Cell():
         # set this cell's var to cell's value
         self.var.set(self.value)
         # and you're done.
+        master = Tk()
+        b = Button (master, text="Save", command=save('sheet.pickle'))
+
 
     def move(self, rowadvance, coladvance):
         targetrow = (self.row + rowadvance) % Nrows
         targetcol = (self.col + coladvance) % Ncols
 
-    def focus(event):
-        targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
-        targetwidget.focus()
+        def focus(self, event):
+            targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
+            targetwidget.focus()
 
         return focus
 
@@ -119,8 +123,9 @@ class Cell():
             self.var.set(self.formula)
 
     def save(self, filename):
-
-        pass
+        with open(filename, 'wb') as out_file:
+            pickle.dump(self, out_file)
+        print("Your data was saved.")
 
     def load(self, filename):
         pass
