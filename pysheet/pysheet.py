@@ -1,11 +1,14 @@
 #!/usr/bin/env python
-
+import pickle
 import tkinter as tk
 import re
 from collections import ChainMap
 import math
-import pickle
 
+from tkinter.filedialog import asksaveasfile
+
+
+from numpy import save
 
 Nrows = 5
 Ncols = 5
@@ -117,10 +120,18 @@ class Cell():
         if hasattr(event, 'keysym') and event.keysym == "Return":
             self.var.set(self.formula)
 
+
     def save(self, filename):
         with open(filename, 'wb') as out_file:
             pickle.dump(self, out_file)
         print("Your data was saved.")
+
+    # def save1(filename):
+    #
+    #     # with open(filename, 'wb') as out_file:
+        #     pickle.dump(filename, out_file)
+        # print("Your data was saved.")
+
 
     def load(self, filename):
         pass
@@ -138,9 +149,24 @@ class SpreadSheet(tk.Frame):
 
     def create_widgets(self):
         # Frame for all the cells
+        # tk.Button(text='Fetch').grid()
         self.cellframe = tk.Frame(self)
         self.cellframe.pack(side='top')
+
         self.B = tk.Butt
+
+
+        files = [('All Files', '*.*'),
+                 ('Python Files', '*.py'),
+                 ('Text Document', '*.txt')]
+
+
+        self.B = tk.Button(root, text="Save", command = (lambda : (asksaveasfile(filetypes=files, defaultextension=files))))
+
+        self.B.pack()
+
+
+
         # Column labels
         blank = tk.Label(self.cellframe)
         blank.grid(row=0, column=0)
@@ -160,4 +186,7 @@ class SpreadSheet(tk.Frame):
 
 root = tk.Tk()
 app = SpreadSheet(Nrows, Ncols, master=root)
+
+
+
 app.mainloop()
