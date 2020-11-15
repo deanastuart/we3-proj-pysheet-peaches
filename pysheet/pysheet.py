@@ -5,21 +5,19 @@ import re
 from collections import ChainMap
 import math
 
-
 Nrows = 5
 Ncols = 5
 
 cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
-
-def cellname(i,j):
-    return f'{chr(ord("A")+j)}{i+1}'
+def cellname(i, j):
+    return f'{chr(ord("A") + j)}{i + 1}'
     # returns a string translates col 0, row 0 to 'A1'
 
 
 class Cell():
-    def __init__(self, row, col, siblings, parent):
+    def __init__(self, i, j, siblings, parent):
         # save off instance variables from arguments
         self.row = i
         self.col = j
@@ -62,10 +60,7 @@ class Cell():
             targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
             targetwidget.focus()
 
-
-
-            return focus
-
+        return focus
 
     def calculate(self):
         # find all the cells mentioned in the formula.
@@ -83,8 +78,6 @@ class Cell():
         for e in self.reqs - currentreqs:
             self.siblings[e].deps.remove(self.name)
 
-
-
         # Look up the values of our required cells
         # reqvalues = a comprehension of r, self.siblings[r].value for r in currentreqs
         reqvalues = {r: self.siblings[r].value for r in currentreqs}
@@ -97,7 +90,6 @@ class Cell():
         # set this cell's var to cell's value
         self.reqs = currentreqs
         self.var.set(self.value)
-
 
     def propagate(self):
         # for each of your deps
@@ -161,7 +153,6 @@ class SpreadSheet(tk.Frame):
                 cell = Cell(i, j, self.cells, self.cellframe)
                 self.cells[cell.name] = cell
                 cell.widget.grid(row=1 + i, column=1 + j)
-
 
 
 root = tk.Tk()
