@@ -5,7 +5,6 @@ import re
 from collections import ChainMap
 import math
 
-import self
 
 Nrows = 5
 Ncols = 5
@@ -50,7 +49,6 @@ class Cell():
         entry.bind('<Down>', self.move(+1, 0))
         entry.bind('<Left>', self.move(0, -1))
         entry.bind('<Right>', self.move(0, 1))
-        # entry.bind('<Button>', self.save('hello.txt'))
         # set this cell's var to cell's value
         self.var.set(self.value)
         # and you're done.
