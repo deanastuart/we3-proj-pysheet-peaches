@@ -5,7 +5,7 @@ import re
 from collections import ChainMap
 import math
 
-import self
+# import self
 
 Nrows = 5
 Ncols = 5
@@ -63,7 +63,7 @@ class Cell():
             targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
             targetwidget.focus()
 
-            return focus
+        return focus
 
     def calculate(self):
         # find all the cells mentioned in the formula.
