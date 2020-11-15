@@ -12,20 +12,21 @@ Ncols = 5
 cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
-def cellname(row, col):
+
+def cellname(i,j):
+    return f'{chr(ord("A")+j)}{i+1}'
     # returns a string translates col 0, row 0 to 'A1'
-    return f'{chr(ord("A") + col)}{row + 1}'
 
 
 class Cell():
     def __init__(self, row, col, siblings, parent):
         # save off instance variables from arguments
-        self.row = row
-        self.col = col
+        self.row = i
+        self.col = j
         self.siblings = siblings
         # and also
         # set name to cellname(i, j)
-        self.name = cellname(row, col)
+        self.name = cellname(i, j)
         # set value of cell to zero
         self.value = 0
         # set formula to a str(value)
@@ -61,7 +62,10 @@ class Cell():
             targetwidget = self.siblings[cellname(targetrow, targetcol)].widget
             targetwidget.focus()
 
-        return focus
+
+
+            return focus
+
 
     def calculate(self):
         # find all the cells mentioned in the formula.
@@ -79,6 +83,8 @@ class Cell():
         for e in self.reqs - currentreqs:
             self.siblings[e].deps.remove(self.name)
 
+
+
         # Look up the values of our required cells
         # reqvalues = a comprehension of r, self.siblings[r].value for r in currentreqs
         reqvalues = {r: self.siblings[r].value for r in currentreqs}
@@ -92,8 +98,8 @@ class Cell():
         self.reqs = currentreqs
         self.var.set(self.value)
 
+
     def propagate(self):
-        # pass
         # for each of your deps
         #     calculate
         #     propogate

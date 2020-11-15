@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad9d4be7-a62d-48b3-9829-89374cc8ac23" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kFZFg1zGDAPcUdJ62HoWkvda1W" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="pysheet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="we3-proj-pysheet-peaches" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pysheet" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pysheet/pysheet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.pysheet" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad9d4be7-a62d-48b3-9829-89374cc8ac23" name="Default Changelist" comment="" />
+      <created>1605298197386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605298197386</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="0" width="1440" height="900" key="DiffContextDialog" timestamp="1605334792394">
+      <screen x="0" y="23" width="1440" height="825" />
+    </state>
+    <state x="0" y="0" width="1440" height="900" key="DiffContextDialog/0.23.1440.825@0.23.1440.825" timestamp="1605334792394" />
+    <state width="934" height="184" key="GridCell.Tab.0.bottom" timestamp="1605454412019">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1419" height="145" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605379334609" />
+    <state width="766" height="151" key="GridCell.Tab.0.bottom/0.23.1440.825@0.23.1440.825" timestamp="1605340800984" />
+    <state width="766" height="151" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1605335727014" />
+    <state width="520" height="174" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1605302410198" />
+    <state width="677" height="125" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1605392566112" />
+    <state width="766" height="145" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1605378856586" />
+    <state width="766" height="237" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1605329337380" />
+    <state width="934" height="184" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1605454412019" />
+    <state width="934" height="184" key="GridCell.Tab.0.center" timestamp="1605454412018">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1419" height="145" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605379334608" />
+    <state width="766" height="151" key="GridCell.Tab.0.center/0.23.1440.825@0.23.1440.825" timestamp="1605340800982" />
+    <state width="766" height="151" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1605335727014" />
+    <state width="520" height="174" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1605302410197" />
+    <state width="677" height="125" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1605392566112" />
+    <state width="766" height="145" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1605378856586" />
+    <state width="766" height="237" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1605329337379" />
+    <state width="934" height="184" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1605454412018" />
+    <state width="934" height="184" key="GridCell.Tab.0.left" timestamp="1605454412017">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1419" height="145" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605379334607" />
+    <state width="766" height="151" key="GridCell.Tab.0.left/0.23.1440.825@0.23.1440.825" timestamp="1605340800981" />
+    <state width="766" height="151" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1605335727013" />
+    <state width="520" height="174" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1605302410196" />
+    <state width="677" height="125" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1605392566112" />
+    <state width="766" height="145" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1605378856585" />
+    <state width="766" height="237" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1605329337379" />
+    <state width="934" height="184" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1605454412017" />
+    <state width="934" height="184" key="GridCell.Tab.0.right" timestamp="1605454412018">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1419" height="145" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605379334608" />
+    <state width="766" height="151" key="GridCell.Tab.0.right/0.23.1440.825@0.23.1440.825" timestamp="1605340800984" />
+    <state width="766" height="151" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1605335727014" />
+    <state width="520" height="174" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1605302410197" />
+    <state width="677" height="125" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1605392566112" />
+    <state width="766" height="145" key="GridCell.Tab.0.right/0.23.1440.830@0.23.1440.830" timestamp="1605378856586" />
+    <state width="766" height="237" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1605329337379" />
+    <state width="934" height="184" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1605454412018" />
+    <state width="766" height="264" key="GridCell.Tab.1.bottom" timestamp="1605325349787">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="766" height="264" key="GridCell.Tab.1.bottom/0.23.1440.829@0.23.1440.829" timestamp="1605325349787" />
+    <state width="766" height="264" key="GridCell.Tab.1.center" timestamp="1605325349787">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="766" height="264" key="GridCell.Tab.1.center/0.23.1440.829@0.23.1440.829" timestamp="1605325349787" />
+    <state width="766" height="264" key="GridCell.Tab.1.left" timestamp="1605325349787">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="766" height="264" key="GridCell.Tab.1.left/0.23.1440.829@0.23.1440.829" timestamp="1605325349787" />
+    <state width="766" height="264" key="GridCell.Tab.1.right" timestamp="1605325349787">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="766" height="264" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1605325349787" />
+    <state x="664" y="147" key="RollbackChangesDialog" timestamp="1605453833530">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state x="664" y="147" key="RollbackChangesDialog/0.23.1440.832@0.23.1440.832" timestamp="1605453833530" />
+  </component>
+</project>
