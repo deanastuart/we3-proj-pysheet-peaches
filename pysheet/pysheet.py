@@ -11,16 +11,14 @@ Ncols = 5
 cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
-def cellname(col, row):
-
-    col = chr(ord('@')+(col+1))
-    return str(col + (row + 1))
+def cellname(i,j):
+    return f'{chr(ord("A")+j)}{i+1}'
     # returns a string translates col 0, row 0 to 'A1'
 
 
 
 class Cell():
-    def __init__(self, row, col, siblings, parent):
+    def __init__(self, i, j, siblings, parent):
         # save off instance variables from arguments
         # and also
         #set name to cellname(i, j)
@@ -30,6 +28,14 @@ class Cell():
         # make deps empty
         # Set of Requirements - values required for this cell to calculate
         # make reqs empty
+        self.row = i
+        self.col = j
+        self.siblings = siblings
+        self.name = cellname(i, j)
+        self.formula = '0'
+        self.value = 0
+        self.deps = set()
+        self.reqs = set()
 
         # be happy you get this machinery for free.
         self.var = tk.StringVar()
@@ -43,14 +49,7 @@ class Cell():
         entry.bind('<Down>', self.move(+1, 0))
         entry.bind('<Left>', self.move(0, -1))
         entry.bind('<Right>', self.move(0, 1))
-        self.row = row
-        self.col = col
-        self.siblings = siblings
-        self.name = cellname(i,j)
-        self.value = 0
-        self.formula = str(self.value)
-        self.dependencies = ()
-        self.set = (self.value)
+
         # set this cell's var to cell's value
         # and you're done.
 
