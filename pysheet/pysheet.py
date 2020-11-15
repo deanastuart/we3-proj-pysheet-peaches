@@ -1,12 +1,16 @@
-#!/Users//Users/amanda/Documents/PythonProjects/env python
 
+#/Users//Users/amanda/Documents/PythonProjects/env python
+
+#!/usr/bin/env python
+import pickle
 import tkinter as tk
 import re
 from collections import ChainMap
 import math
-import pickle
 
-import self
+from tkinter.filedialog import asksaveasfile
+
+from numpy import save
 
 Nrows = 5
 Ncols = 5
@@ -14,9 +18,8 @@ Ncols = 5
 cellre = re.compile(r'\b[A-Z][0-9]\b')
 
 
-
-def cellname(i,j):
-    return f'{chr(ord("A")+j)}{i+1}'
+def cellname(i, j):
+    return f'{chr(ord("A") + j)}{i + 1}'
     # returns a string translates col 0, row 0 to 'A1'
 
 
@@ -84,11 +87,11 @@ class Cell():
         #    my siblings[r].deps.remove(self.name)
         for e in self.reqs - currentreqs:
             self.siblings[e].deps.remove(self.name)
+
         # Look up the values of our required cells
         # reqvalues = a comprehension of r, self.siblings[r].value for r in currentreqs
         reqvalues = {r: self.siblings[r].value for r in currentreqs}
         # Build an environment with these values and basic math functions
-
         environment = ChainMap(math.__dict__, reqvalues)
         # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
@@ -96,7 +99,6 @@ class Cell():
         # set this cell's var to cell's value
         self.reqs = currentreqs
         self.var.set(self.value)
-
 
     def propagate(self):
         # for each of your deps
@@ -126,6 +128,12 @@ class Cell():
         with open(filename, 'wb') as out_file:
             pickle.dump(self, out_file)
         print("Your data was saved.")
+        
+    # def save1(filename):
+    #
+    #     # with open(filename, 'wb') as out_file:
+        #     pickle.dump(filename, out_file)
+        # print("Your data was saved.")
 
     def load(self, filename):
         pass
@@ -143,8 +151,19 @@ class SpreadSheet(tk.Frame):
 
     def create_widgets(self):
         # Frame for all the cells
+        # tk.Button(text='Fetch').grid()
         self.cellframe = tk.Frame(self)
         self.cellframe.pack(side='top')
+
+        files = [('All Files', '*.*'),
+                 ('Python Files', '*.py'),
+                 ('Text Document', '*.txt')]
+
+
+        self.B = tk.Button(root, text="Save", command = (lambda : (asksaveasfile(filetypes=files, defaultextension=files))))
+
+        self.B.pack()
+
 
         # Column labels
         blank = tk.Label(self.cellframe)
@@ -163,7 +182,9 @@ class SpreadSheet(tk.Frame):
                 cell.widget.grid(row=1 + i, column=1 + j)
 
 
-
 root = tk.Tk()
 app = SpreadSheet(Nrows, Ncols, master=root)
+
+
+
 app.mainloop()
