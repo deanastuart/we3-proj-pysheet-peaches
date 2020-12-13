@@ -1,17 +1,16 @@
 
-#/Users//Users/amanda/Documents/PythonProjects/env python
-
-#!/usr/bin/env python
 import pickle
 import tkinter as tk
 import re
 from collections import ChainMap
 import math
+import yaml
+import json
 
 from tkinter.filedialog import asksaveasfile
 
 
-from numpy import save
+#from numpy import save
 
 Nrows = 5
 Ncols = 5
@@ -124,14 +123,6 @@ class Cell():
         if hasattr(event, 'keysym') and event.keysym == "Return":
             self.var.set(self.formula)
 
-
-    # def save1(filename):
-    #
-    #     # with open(filename, 'wb') as out_file:
-        #     pickle.dump(filename, out_file)
-        # print("Your data was saved.")
-
-
     def load(self, filename):
         pass
 
@@ -146,6 +137,15 @@ class SpreadSheet(tk.Frame):
         self.pack()
         self.create_widgets()
 
+    def save1(self, filename):
+        print(self.cells)
+        data = {}
+        for key in self.cells:
+            data[key] = self.cells[key].value
+
+        with open(filename, 'w') as outfile:
+            yaml.dump(data, outfile)
+
     def create_widgets(self):
         # Frame for all the cells
         # tk.Button(text='Fetch').grid()
@@ -155,12 +155,14 @@ class SpreadSheet(tk.Frame):
         # self.B = tk.Butt
 
 
-        files = [('All Files', '*.*'),
+        """files = [('All Files', '*.*'),
                  ('Python Files', '*.py'),
                  ('Text Document', '*.txt')]
+"""
 
-
-        self.B = tk.Button(root, text="Save", command = (lambda : (asksaveasfile(filetypes=files, defaultextension=files))))
+        self.B = tk.Button(root, text="Save", command=lambda: self.save1('test.yaml'))
+        # Cell.save1(self, [self.rows, self.cols] , 'test.pickle'
+        # (asksaveasfile(filetypes=files, defaultextension=files))
         self.C = tk.Button(root, text="Load")
 
         self.B.pack()
@@ -183,6 +185,8 @@ class SpreadSheet(tk.Frame):
                 cell = Cell(i, j, self.cells, self.cellframe)
                 self.cells[cell.name] = cell
                 cell.widget.grid(row=1 + i, column=1 + j)
+
+
 
 
 root = tk.Tk()
